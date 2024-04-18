@@ -1,0 +1,572 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - api_to_bucket
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: data_loader_from_api
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: data_loader_from_api
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - spark_config
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: api to bucket
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - data_loader_from_api
+  uuid: api_to_bucket
+- all_upstream_blocks_executed: true
+  color: yellow
+  configuration: {}
+  downstream_blocks:
+  - spark_transformations
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: spark_config
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - api_to_bucket
+  uuid: spark_config
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: spark_info
+  retry_config: null
+  status: updated
+  timeout: null
+  type: scratchpad
+  upstream_blocks: []
+  uuid: spark_info
+- all_upstream_blocks_executed: false
+  color: blue
+  configuration: {}
+  downstream_blocks:
+  - spark_to_bucket
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: spark_transformations
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - spark_config
+  uuid: spark_transformations
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - load_data_from_gcs_all
+  - gcs_data_loader_total_delay_by_airline
+  - gcs_data_loader_place
+  - gcs_data_loader_airline_names
+  - gcs_data_loader_time
+  - gcs_data_loader_time_periods
+  - gcs_data_loader_total_delay
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: spark_to_bucket
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - spark_transformations
+  uuid: spark_to_bucket
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformations_all
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_data_from_gcs_all
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: load_data_from_gcs_all
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_all
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformations_all
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_data_from_gcs_all
+  uuid: gcs_to_bigquery_transformations_all
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - delay_analysis_by_origin_destination
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_all
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformations_all
+  uuid: gcs_to_bigquery_expoerter_all
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_total_delay_by_airline
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_total_delay_by_airline
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_total_delay_by_airline
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_total_delay_by_airline
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_total_delay_by_airline
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_total_delay_by_airline
+  uuid: gcs_to_bigquery_transformation_total_delay_by_airline
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - delay_analysis_by_airline
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_total_delay_by_airline
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_total_delay_by_airline
+  uuid: gcs_to_bigquery_expoerter_total_delay_by_airline
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_place
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_place
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_place
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_place
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_place
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_place
+  uuid: gcs_to_bigquery_transformation_place
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - delay_analysis_by_origin_destination
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_place
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_place
+  uuid: gcs_to_bigquery_expoerter_place
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_airline_names
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_airline_names
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_airline_names
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_airline_names
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_airline_names
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_airline_names
+  uuid: gcs_to_bigquery_transformation_airline_names
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_airline_names
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_airline_names
+  uuid: gcs_to_bigquery_expoerter_airline_names
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_time
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_time
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_time
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_time
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_time
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_time
+  uuid: gcs_to_bigquery_transformation_time
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_time
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_time
+  uuid: gcs_to_bigquery_expoerter_time
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_time_periods
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_time_periods
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_time_periods
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_time_periods
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_time_periods
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_time_periods
+  uuid: gcs_to_bigquery_transformation_time_periods
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - delay_analysis_by_time_period
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_time_periods
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_time_periods
+  uuid: gcs_to_bigquery_expoerter_time_periods
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_transformation_total_delay
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_data_loader_total_delay
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - spark_to_bucket
+  uuid: gcs_data_loader_total_delay
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - gcs_to_bigquery_expoerter_total_delay
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_transformation_total_delay
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - gcs_data_loader_total_delay
+  uuid: gcs_to_bigquery_transformation_total_delay
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - delay_analysis_by_origin_destination
+  - delay_analysis_by_time_period
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: gcs_to_bigquery_expoerter_total_delay
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - gcs_to_bigquery_transformation_total_delay
+  uuid: gcs_to_bigquery_expoerter_total_delay
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dtc-de-course-412810
+    data_provider_profile: default
+    data_provider_schema: project
+    data_provider_table: All
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    limit: 1000
+    upstream_block_configuration:
+      gcs_to_bigquery_expoerter_airline_names:
+        table_name: dtc-de-course-412810.project.airline_names
+      gcs_to_bigquery_expoerter_all:
+        table_name: ''
+      gcs_to_bigquery_expoerter_place:
+        table_name: dtc-de-course-412810.project.place
+      gcs_to_bigquery_expoerter_time:
+        table_name: dtc-de-course-412810.project.time
+      gcs_to_bigquery_expoerter_time_periods:
+        table_name: dtc-de-course-412810.project.time_periods
+      gcs_to_bigquery_expoerter_total_delay:
+        table_name: dtc-de-course-412810.project.total_delay
+      gcs_to_bigquery_expoerter_total_delay_by_airline:
+        table_name: dtc-de-course-412810.project.total_delay_by_airline
+    use_raw_sql: true
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: Delay_analysis_by_Airline
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - gcs_to_bigquery_expoerter_total_delay_by_airline
+  uuid: delay_analysis_by_airline
+- all_upstream_blocks_executed: false
+  color: purple
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dtc-de-course-412810
+    data_provider_profile: default
+    data_provider_schema: project
+    export_write_policy: append
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: Delay_analysis_by_origin&destination
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - gcs_to_bigquery_expoerter_place
+  - gcs_to_bigquery_expoerter_total_delay
+  - gcs_to_bigquery_expoerter_all
+  uuid: delay_analysis_by_origin_destination
+- all_upstream_blocks_executed: false
+  color: grey
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dtc-de-course-412810
+    data_provider_profile: default
+    data_provider_schema: project
+    export_write_policy: append
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: delay_analysis_by_time_period
+  retry_config: null
+  status: updated
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - gcs_to_bigquery_expoerter_total_delay
+  - gcs_to_bigquery_expoerter_time_periods
+  uuid: delay_analysis_by_time_period
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-04-10 11:20:33.179955+00:00'
+data_integration: null
+description: This Pipeline is End to End Execution of the project
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: Flight_delay_DE_project
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: flight_delay_de_project
+variables_dir: /home/src/de-project
+widgets: []
