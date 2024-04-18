@@ -48,7 +48,7 @@ The end-to-end data pipeline includes the following steps:
 
 ## Project Architecture Diagram
 
-![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/2dbca52d-7c88-4671-80d3-62ac9d6f4f84)
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
 
 ## Link to the Dashboard
 
