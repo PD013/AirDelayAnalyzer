@@ -40,12 +40,22 @@ By analyzing this data, we aim to uncover the key factors contributing to flight
 
 ## Project Architecture
 
-The end-to-end data pipeline includes the below steps:
+The end-to-end data pipeline includes the following steps:
 
-  * Kaggle dataset is downloaded into the Google VM
-  * The raw parquet file is uploaded to the gcs bucket as data lake
-  * Next, Using Mage+spark Image on the docker the data was transformed with correct data and also new dataframes are created from   
-     those original data by using Spark SQL & Pyspark and then saved in different folders with partitions
-     (As the data was of more than 30 Million Rows)  
-  * The new dataframes are uploaded to gcs bucket and further pushed on the bigquery as tables (datawarehouse)
-  * The tables in the bigquery are further queried as well as partitioned by Year and Clustered for optimised performance which will be     further used to create new tables which will be finally used for the visualizations 
+- Kaggle dataset is downloaded into the Google VM.
+- The raw Parquet file is uploaded to the GCS bucket as a data lake.
+- Using the Mage+Spark Image on Docker, the data is transformed and cleaned, creating new dataframes through Spark SQL & PySpark. These new dataframes are stored in different folders with partitions. This step is crucial as the dataset contains over 30 million rows.
+- The transformed dataframes are uploaded to the GCS bucket and subsequently pushed to BigQuery as tables (data warehouse).
+- Tables in BigQuery are queried, partitioned by year, and clustered for optimized performance. These tables will serve as the foundation for creating new tables, which will ultimately be used for visualizations.
+
+
+
+## You can find the detailed Architecture on the diagram below:
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/2dbca52d-7c88-4671-80d3-62ac9d6f4f84)
+
+
+
+## Link to the Dashboard :- 
+  [Looker Dashboard](https://lookerstudio.google.com/reporting/b2519cc7-0b02-496b-9caa-3e3eaf65916b)
+
+
