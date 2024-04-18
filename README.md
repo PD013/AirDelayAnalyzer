@@ -123,7 +123,7 @@ The end-to-end data pipeline includes the following steps:
 
 #### 1. Edit Requirements File:
 
-- Open the [`requirements.txt`]() file in your project directory and add the necessary Python libraries using the pip syntax on the mage
+- Open the [`requirements.txt`](https://github.com/PD013/AirDelayAnalyzer/blob/main/requirements.txt) file in your project directory and add the necessary Python libraries using the pip syntax on the mage
 -       pip install requirements.txt
   
 #### 2. Modify Metadata YAML File:
