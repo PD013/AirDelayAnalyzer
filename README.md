@@ -27,13 +27,13 @@ By analyzing this data, we aim to uncover the key factors contributing to flight
 ## Technologies / Tools
 
 - Containerization: Docker
-- Cloud: GCP
+- Cloud: GCP 
 - Infrastructure as code (IaC): Terraform
-- Workflow orchestration: Mage-ai
+- Workflow orchestration: Mage-AI
 - Data Warehouse: BigQuery
-- Batch processing: Spark SQL
-- IDE: VS Code, Jupyter Notebook
-- Language: Python
+- Batch processing: Spark (with MageAI)
+- IDE: VS Code
+- Language: Python , SQL 
 - Visualization: Google Looker Studio
 
 ## Project Architecture
