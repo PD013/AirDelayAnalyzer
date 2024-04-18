@@ -119,7 +119,7 @@ The end-to-end data pipeline includes the following steps:
 - Here you can change the directories according to your need
 
   
-### Configuring Mage
+### Configuring Mage (These files would be inside the pipeline folder)
 
 #### 1. Edit Requirements File:
 
@@ -128,7 +128,7 @@ The end-to-end data pipeline includes the following steps:
   
 #### 2. Modify Metadata YAML File:
 
-- Open the [`metadata.yaml`](/AirDelayAnalyzer/flight_delay_de_project/metadata.yaml) file and update the `spark_config` section with the required configurations.
+- Open the [`metadata.yaml`](/metadata.yaml) file and update the `spark_config` section with the required configurations.
 - Add or update the `sub_executor_env` list with `JAVA_HOME` and `PYTHONPATH`.
 - Add the location of `keys.json` in the `others` section.
   
@@ -154,4 +154,7 @@ The end-to-end data pipeline includes the following steps:
 - Once you've made the necessary changes, you can easily run the pipeline to reproduce the Flight Delay Exploration Project on your setup.
 
 
-
+### Visualization
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
