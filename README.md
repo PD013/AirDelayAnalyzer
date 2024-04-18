@@ -128,20 +128,20 @@ The end-to-end data pipeline includes the following steps:
   
 #### 2. Modify Metadata YAML File:
 
-- Open the `metadata.yaml` file and update the `spark_config` section with the required configurations.
+- Open the [`metadata.yaml`](/AirDelayAnalyzer/flight_delay_de_project/metadata.yaml) file and update the `spark_config` section with the required configurations.
 - Add or update the `sub_executor_env` list with `JAVA_HOME` and `PYTHONPATH`.
 - Add the location of `keys.json` in the `others` section.
   
 
 #### 3. Modify io.config.yaml File:
 
-- Open the `io.config.yaml` file and update the `GOOGLE_SERVICE_ACC_KEY_FILEPATH` with the path to your `keys.json` file.
+- Open the [`io.config.yaml`](/io.config.yaml)  file and update the `GOOGLE_SERVICE_ACC_KEY_FILEPATH` with the path to your `keys.json` file.
 
 ### Downloading and Running the Pipeline
 
 #### 1. Download the Pipeline:
 
-- Download the .zip file named `flight_delay_de_project_zip` from the GitHub repository.
+- Download the .zip file named [flight_delay_de_project_zip](/flight_delay_de_project_zip) from the GitHub repository.
 - And just to view the blocks of the pipeline without downloading the ZIP checkout the [AirDelayAnalyzer Folder](/AirDelayAnalyzer)
 
 #### 2. Modify Pipeline Blocks:
