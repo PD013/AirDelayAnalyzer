@@ -155,6 +155,6 @@ The end-to-end data pipeline includes the following steps:
 
 
 ### Visualization
-![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
-![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
-![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
+![Delay_by_Airline]([/images/Delay_by_Airline.pgn](https://github.com/PD013/AirDelayAnalyzer/blob/main/images/Delay_by_Airline.png))
+![Delay_by_Location](/images/Delay_by_Location.pgn)
+![Delay_by_time_period](/images/Delay_by_time_period.pgn)
