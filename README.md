@@ -142,6 +142,7 @@ The end-to-end data pipeline includes the following steps:
 #### 1. Download the Pipeline:
 
 - Download the .zip file named `flight_delay_de_project_zip` from the GitHub repository.
+- And just to view the blocks of the pipeline without downloading the ZIP checkout the [AirDelayAnalyzer Folder](/AirDelayAnalyzer)
 
 #### 2. Modify Pipeline Blocks:
 
