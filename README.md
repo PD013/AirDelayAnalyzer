@@ -1,5 +1,9 @@
 # AirDelayAnalyzer
 
+## Project Architecture Diagram
+
+![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
+
 ## Problem Statement
 
 Flight delays are a persistent issue in the aviation industry, causing inconvenience and frustration for passengers and financial losses for airlines.
@@ -46,9 +50,7 @@ The end-to-end data pipeline includes the following steps:
 - The transformed dataframes are uploaded to the GCS bucket and subsequently pushed to BigQuery as tables (data warehouse).
 - Tables in BigQuery are queried, partitioned by year, and clustered for optimized performance. These tables will serve as the foundation for creating new tables, which will ultimately be used for visualizations.
 
-## Project Architecture Diagram
 
-![Project Architecture](https://github.com/PD013/AirDelayAnalyzer/assets/114251906/b1631b99-2202-4ac4-9fa5-7c506afe05b4)
 
 ## Link to the Dashboard
 
