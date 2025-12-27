@@ -19,11 +19,12 @@ def export_data_to_big_query(df: DataFrame, **kwargs) -> None:
       **kwargs: Additional keyword arguments (unused in this example).
   """
   # Project ID (replace with your actual GCP project ID)
-  project_id = "dtc-de-course-412810"
+  import os
+  project_id = os.getenv("GCP_PROJECT_ID", "dtc-de-course-412810")
 
   # Dataset and table names
   dataset_id = "project"
-  table_name = "time"
+  table_name = "time_periods"
 
   # Construct the full table ID
   table_id = f"{project_id}.{dataset_id}.{table_name}"
